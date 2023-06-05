@@ -8,28 +8,30 @@ import SwiftUI
 
 struct ContentViewLaunch: View {
     var body: some View {
-        NavigationStack {
+        NavigationStack{
             VStack {
                 Image("logo-rm")
                             .resizable()
                             .scaledToFit()
+                            .hoverEffect(.highlight)
                 Text("Hola, te damos la bienvenida")
                     .font(.largeTitle)
                     .padding()
                 
                 NavigationLink(destination: ContentView()) {
-                    Text("Ver Personajes de Rick y Morty").font(
-                        .custom(
-                        "Bold",
+                    Text("Ver Personajes de Rick y Morty")
+                        .font(.custom("Bold",
                         fixedSize: 30)
                         .weight(.black))
                         .background(Color.blue)
                         .foregroundColor(.white)
                         .cornerRadius(10)
                 }
-            } //background(Color.purple)
-        }.navigationBarBackButtonHidden(true)
-        
+            }
+        }
+        ProgressView()
+        .navigationBarBackButtonHidden(false)
+        //.preferredColorScheme(ColorScheme.dark)
     }
 }
 

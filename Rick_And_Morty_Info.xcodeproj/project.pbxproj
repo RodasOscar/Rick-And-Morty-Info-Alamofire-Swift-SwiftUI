@@ -151,8 +151,8 @@
 		068F301C2A25F8740058981F /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				063165572A279EDB00FBFFD5 /* CharactersResponse.swift */,
 				063165552A279E7E00FBFFD5 /* CharacterService.swift */,
+				063165572A279EDB00FBFFD5 /* CharactersResponse.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";

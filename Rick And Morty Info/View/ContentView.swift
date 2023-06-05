@@ -48,7 +48,7 @@ struct ContentView: View {
                                 }
                             }
                                                         }
-                                                        ProgressView().onAppear(perform: viewModel.nextPage)
+                        ProgressView("Cargando").onAppear(perform: viewModel.nextPage)
                                                     }
                                                 }
                                             }

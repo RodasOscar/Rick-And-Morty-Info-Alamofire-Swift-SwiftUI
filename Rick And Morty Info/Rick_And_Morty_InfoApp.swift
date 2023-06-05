@@ -11,6 +11,7 @@ import SwiftUI
 struct Rick_And_Morty_InfoApp: App {
     var body: some Scene {
         WindowGroup {
+//Primera View a ejecutar
             ContentViewLaunch()
         }
     }
