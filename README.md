@@ -23,11 +23,3 @@
 <div align="center">
      <img alt="D" title="RichAndMorty1"  src="https://github.com/RodasOscar/Rick-And-Morty-Info-Alamofire-Swift-SwiftUI/assets/63123601/6a6f36a1-a2cb-413c-94e6-4477856abdc8" width="350px" />
 </div>
-
-### Por Mejorar
-
-- 🟡Diseño
-- 🟡Mas excepciones y comentarios
-- 🟡Mas efectos en pantalla
-- 🟡Implementar CoreData
-- 🟡Boton de Home o para Salir
