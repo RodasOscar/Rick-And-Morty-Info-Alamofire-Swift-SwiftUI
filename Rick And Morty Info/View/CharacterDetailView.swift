@@ -22,84 +22,27 @@ struct CharacterDetailView: View {
         NavigationStack{
             VStack {
                 if let url = URL(string: character.image) {
-                    ImageView(url: url)
-                        .frame(width: 200, height: 200)
-                        .cornerRadius(15)
+                    ImageView(url: url).imageDescriptionStyle()
                 }
-                Text(character.name).font(
-                    .custom(
-                    "AmericanTypewriter",
-                    fixedSize: 40)
-                    .weight(.heavy)
-                    )
+                Text(character.name).titleTextStyle() 
                 HStack(alignment: .center) {
-                    Text(status).font(
-                        .custom(
-                        "AmericanTypewriter",
-                        fixedSize: 25)
-                        .weight(.bold)
-                        )
-                    Text(character.status).font(
-                        .custom(
-                        "AmericanTypewriter",
-                        fixedSize: 25)
-                        .weight(.semibold)
-
-                    )
+                    VStack{
+                        Text(status).titleDescriptionTextStyle()
+                        Text(character.status).descriptionTextStyle()
+                        Text(species).titleDescriptionTextStyle()
+                        Text(character.species).descriptionTextStyle()
+                        Text(type).titleDescriptionTextStyle()
+                        Text(character.type).descriptionTextStyle()
+                        Text(gender).titleDescriptionTextStyle()
+                        Text(character.gender).descriptionTextStyle()
+                        Text(origin).titleDescriptionTextStyle()
+                        Text(character.origin.name).descriptionTextStyle()
+                    }
                 }
-                HStack (alignment: .center) {
-                    Text(species).font(
-                        .custom(
-                        "AmericanTypewriter",
-                        fixedSize: 25)
-                        .weight(.bold))
-                    Text(character.species).font(
-                        .custom(
-                        "AmericanTypewriter",
-                        fixedSize: 25)
-                        .weight(.semibold))
-                }
-                HStack (alignment: .center) {
-                    Text(type).font(
-                        .custom(
-                        "AmericanTypewriter",
-                        fixedSize: 25)
-                        .weight(.bold))
-                    Text(character.type).font(
-                        .custom(
-                        "AmericanTypewriter",
-                        fixedSize: 25)
-                        .weight(.semibold))
-                }
-                HStack (alignment: .center) {
-                    Text(gender).font(
-                        .custom(
-                        "AmericanTypewriter",
-                        fixedSize: 25)
-                        .weight(.bold))
-                    Text(character.gender).font(
-                        .custom(
-                        "AmericanTypewriter",
-                        fixedSize: 25)
-                        .weight(.semibold))
-                }
-                HStack (alignment: .center) {
-                    Text(origin).font(
-                        .custom(
-                        "AmericanTypewriter",
-                        fixedSize: 25)
-                        .weight(.bold))
-                    Text(character.origin.name).font(
-                        .custom(
-                        "AmericanTypewriter",
-                        fixedSize: 25)
-                        .weight(.semibold))
-                }
-                //Text(character.origin.url).font(.title2)
-                //Text(episode + character.episode[0]).font(.title2)
-                //Text(character.url).font(.title2)
-            }//.onAppear(perform: contentViewModel.characters)
+                
+            }
         }
+            .navigationTitle("Personaje")
     }
 }
 

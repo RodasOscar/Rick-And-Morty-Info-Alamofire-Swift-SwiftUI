@@ -16,16 +16,21 @@ struct ContentView: View {
     
     var body: some View {
         NavigationStack{
-            VStack() {
-                Text("Personajes de Rick y Morty").font(.custom("Bold", size: 30))
+            Text("Personajes de Rick y Morty").bold()
+            VStack{
                 HStack {
-                    TextField("Buscar", text: $searchText)
-                        .textFieldStyle(RoundedBorderTextFieldStyle())
-                        .padding(.horizontal)
+                    TextField("Buscar", text: $searchText).styleSearch()
                         .onChange(of: searchText) { text in
                             viewModel.searchCharacters(name: text)
                         }
+                    Button (action:{
+                        self.searchText = ""
+                        viewModel.loadCharacters()
+                    }, label: {
+                        Image(systemName: "house.fill")
+                                        })
                 }
+                
                 if viewModel.errorMessage != nil {
                     Text(viewModel.errorMessage!)
                         .foregroundColor(.red)
@@ -36,23 +41,23 @@ struct ContentView: View {
                             NavigationLink(destination: CharacterDetailView(character: character)) {
                                 HStack {
                                     if let url = URL(string: character.image) {
-                                        ImageView(url: url)
-                                            .frame(width: 70, height: 70)
-                                            .cornerRadius(10)
+                                        ImageView(url: url).imageListStyle()
                                     }
                                     VStack(alignment: .listRowSeparatorLeading){
-                                        Text(character.name)
+                                        Text(character.name).bold()
                                         Text("Origen: " + character.origin.name)
                                     }
                                     
                                 }
                             }
                                                         }
-                                                        ProgressView().onAppear(perform: viewModel.nextPage)
+                        ProgressView("Cargando ...")
+                            .frame(alignment: .center)
+                            .onAppear(perform: viewModel.nextPage)
                                                     }
                                                 }
                                             }
-                                        }.navigationBarBackButtonHidden(true)
+                                        }
                                     }
                                 }
 struct ContentView_Previews: PreviewProvider {
@@ -60,3 +65,4 @@ struct ContentView_Previews: PreviewProvider {
         ContentView()
     }
 }
+

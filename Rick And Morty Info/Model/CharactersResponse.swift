@@ -41,13 +41,13 @@
  */
 
 import Foundation
-
+//Estructura que se compone por una información almacenada en info de tipo JsonInfo y un array con la información de los personajes
 struct CharactersResponse: Decodable {
     let info: JsonInfo
     let results: [Character]
     
 }
-
+//Estructura interna de la constante JsonInfo que contiene la información de la pagina actual, final, siguiente y anterior
 struct JsonInfo: Decodable {
     let count: Int
     let pages: Int
@@ -55,7 +55,7 @@ struct JsonInfo: Decodable {
     let prev: String?
     
 }
-// Un personaje de la API de Rick y Morty.
+// Constantes que componen un personaje de la API de Rick y Morty.
 struct Character: Decodable, Identifiable {
     let id: Int
     let name: String
@@ -71,12 +71,12 @@ struct Character: Decodable, Identifiable {
     let created: String
     
 }
-
+// Estructura interna de la constante origin (Origen)
 struct CharacterOriginModel: Decodable {
     public let name: String
     public let url: String
 }
-
+//Estructura interna de la constante location (Localización)
 struct CharacterLocationModel: Decodable {
     public let name: String
     public let url: String

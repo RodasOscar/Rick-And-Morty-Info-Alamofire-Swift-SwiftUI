@@ -6,16 +6,15 @@
 //
 
 import Foundation
-import CoreData
 import Alamofire
 import AlamofireImage
 
 class ContentViewModel: ObservableObject {
-    
+    //variables que cambian durante la ejecución
     @Published var characters: [Character] = []
     @Published var isLoading = false
     @Published var errorMessage: String?
-
+    // inicializadores variables privadas
     private var page = 1
     private var name: String?
     private let characterService: CharacterServiceProtocol
@@ -25,7 +24,7 @@ class ContentViewModel: ObservableObject {
     }
     
     
-    
+    //Función que carga los personajes y la información de la API
     func loadCharacters() {
         guard !isLoading else { return }
         isLoading = true
@@ -34,40 +33,34 @@ class ContentViewModel: ObservableObject {
             case .success(let characters):
                 self?.characters.append(contentsOf: characters)
                 self?.page += 1
-                print(self?.page as Any)
-                print(self?.isLoading as Any)
                 self?.isLoading = false
-                print(self?.isLoading as Any)
             case .failure(let error):
-                self?.isLoading = false
                 if let urlError = error as? URLError, urlError.code == .notConnectedToInternet {
+                    self?.isLoading = false
                     self?.errorMessage = "Sin conexión a Internet"
-                } else {
-                    self?.errorMessage = error.localizedDescription
+                }else {
+                    self?.isLoading = false
                 }
             }
         }
     }
-    
+    // Función para cambio de pagina
     func nextPage (){
         if page <= 42 {
             loadCharacters()
-            print(page)
         }else if isLoading{
             loadCharacters()
-            print(page)
         }else{
-            self.errorMessage = "No se encuentran mas resultados"
+            self.errorMessage = "Fin de los resultados"
         }
     }
-    
+    //Excepción al buscar 
     func searchCharacters(name: String) {
         self.name = name
         characters.removeAll()
         if errorMessage == nil {
-            
-        }else{
-            self.errorMessage = "No se encuentra. Intente de nuevo"
+        }else {
+            self.errorMessage = "No existe, Intente de Nuevo"
         }
         self.page = 1
         loadCharacters()

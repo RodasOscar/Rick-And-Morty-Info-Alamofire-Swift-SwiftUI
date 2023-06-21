@@ -6,32 +6,39 @@
 //
 import SwiftUI
 
+import SwiftUI
+
 struct ContentViewLaunch: View {
+    @State private var progress = 0.0
+    @State private var isActive = false
+    
     var body: some View {
-        NavigationStack {
+        NavigationView {
             VStack {
                 Image("logo-rm")
-                            .resizable()
-                            .scaledToFit()
-                Text("Hola, te damos la bienvenida")
-                    .font(.largeTitle)
-                    .padding()
+                    .resizable()
+                    .scaledToFit()
                 
-                NavigationLink(destination: ContentView()) {
-                    Text("Ver Personajes de Rick y Morty").font(
-                        .custom(
-                        "Bold",
-                        fixedSize: 30)
-                        .weight(.black))
-                        .background(Color.blue)
-                        .foregroundColor(.white)
-                        .cornerRadius(10)
-                }
-            } //background(Color.purple)
-        }.navigationBarBackButtonHidden(true)
-        
+                ProgressView(value: progress)
+                    .progressViewStyle(CircularProgressViewStyle())
+                    .scaleEffect(2)
+                    .onAppear{
+                        Timer.scheduledTimer(withTimeInterval: 0.1, repeats: true) { timer in
+                            progress += 0.05
+                            if progress >= 1.0 {
+                                isActive = true
+                                timer.invalidate()
+                            }
+                        }
+                    }
+            }
+            .fullScreenCover(isPresented: $isActive) {
+                ContentView()
+            }
+        }
     }
 }
+
 
 struct ContentViewLaunch_Previews: PreviewProvider {
     static var previews: some View {
