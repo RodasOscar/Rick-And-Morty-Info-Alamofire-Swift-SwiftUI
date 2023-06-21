@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import CoreData
 import Alamofire
 import AlamofireImage
 
@@ -36,33 +35,32 @@ class ContentViewModel: ObservableObject {
                 self?.page += 1
                 self?.isLoading = false
             case .failure(let error):
-                self?.isLoading = false
                 if let urlError = error as? URLError, urlError.code == .notConnectedToInternet {
+                    self?.isLoading = false
                     self?.errorMessage = "Sin conexión a Internet"
-                } else {
-                    self?.errorMessage = error.localizedDescription
+                }else {
+                    self?.isLoading = false
                 }
             }
         }
     }
-    
+    // Función para cambio de pagina
     func nextPage (){
         if page <= 42 {
             loadCharacters()
         }else if isLoading{
             loadCharacters()
         }else{
-            self.errorMessage = "No se encuentran mas resultados"
+            self.errorMessage = "Fin de los resultados"
         }
     }
-    
+    //Excepción al buscar 
     func searchCharacters(name: String) {
         self.name = name
         characters.removeAll()
         if errorMessage == nil {
-            
-        }else{
-            self.errorMessage = "No se encuentra. Intente de nuevo"
+        }else {
+            self.errorMessage = "No existe, Intente de Nuevo"
         }
         self.page = 1
         loadCharacters()

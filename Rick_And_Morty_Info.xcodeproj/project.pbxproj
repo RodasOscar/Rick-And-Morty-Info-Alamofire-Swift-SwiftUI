@@ -13,6 +13,8 @@
 		0631655A2A27A09D00FBFFD5 /* CharacterDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 063165592A27A09D00FBFFD5 /* CharacterDetailView.swift */; };
 		063165602A27A2CC00FBFFD5 /* AlamofireImage in Frameworks */ = {isa = PBXBuildFile; productRef = 0631655F2A27A2CC00FBFFD5 /* AlamofireImage */; };
 		063165632A27A2DA00FBFFD5 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 063165622A27A2DA00FBFFD5 /* Alamofire */; };
+		068C512A2A4322B7007E3D86 /* Text.swift in Sources */ = {isa = PBXBuildFile; fileRef = 068C51292A4322B7007E3D86 /* Text.swift */; };
+		068C512C2A432639007E3D86 /* Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = 068C512B2A432639007E3D86 /* Image.swift */; };
 		068F2FF32A25F71F0058981F /* Rick_And_Morty_InfoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 068F2FF22A25F71F0058981F /* Rick_And_Morty_InfoApp.swift */; };
 		068F2FF52A25F71F0058981F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 068F2FF42A25F71F0058981F /* ContentView.swift */; };
 		068F2FF72A25F7220058981F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 068F2FF62A25F7220058981F /* Assets.xcassets */; };
@@ -46,6 +48,8 @@
 		063165552A279E7E00FBFFD5 /* CharacterService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterService.swift; sourceTree = "<group>"; };
 		063165572A279EDB00FBFFD5 /* CharactersResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersResponse.swift; sourceTree = "<group>"; };
 		063165592A27A09D00FBFFD5 /* CharacterDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterDetailView.swift; sourceTree = "<group>"; };
+		068C51292A4322B7007E3D86 /* Text.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Text.swift; sourceTree = "<group>"; };
+		068C512B2A432639007E3D86 /* Image.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Image.swift; sourceTree = "<group>"; };
 		068F2FEF2A25F71F0058981F /* Rick_And_Morty_Info.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Rick_And_Morty_Info.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		068F2FF22A25F71F0058981F /* Rick_And_Morty_InfoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rick_And_Morty_InfoApp.swift; sourceTree = "<group>"; };
 		068F2FF42A25F71F0058981F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -88,6 +92,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		068C51272A43226E007E3D86 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				068C51292A4322B7007E3D86 /* Text.swift */,
+				068C512B2A432639007E3D86 /* Image.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
 		068F2FE62A25F71F0058981F = {
 			isa = PBXGroup;
 			children = (
@@ -113,6 +126,7 @@
 		068F2FF12A25F71F0058981F /* Rick And Morty Info */ = {
 			isa = PBXGroup;
 			children = (
+				068C51272A43226E007E3D86 /* Extension */,
 				068F301C2A25F8740058981F /* Model */,
 				068F301E2A25F8A90058981F /* View */,
 				068F301D2A25F88A0058981F /* ViewModel */,
@@ -322,6 +336,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				068F2FF52A25F71F0058981F /* ContentView.swift in Sources */,
+				068C512A2A4322B7007E3D86 /* Text.swift in Sources */,
 				063165582A279EDB00FBFFD5 /* CharactersResponse.swift in Sources */,
 				06E92FCF2A287A4C0052509F /* ContentViewLaunch.swift in Sources */,
 				063165562A279E7E00FBFFD5 /* CharacterService.swift in Sources */,
@@ -329,6 +344,7 @@
 				063165542A279E1300FBFFD5 /* ContentViewModel.swift in Sources */,
 				068F2FF32A25F71F0058981F /* Rick_And_Morty_InfoApp.swift in Sources */,
 				0631655A2A27A09D00FBFFD5 /* CharacterDetailView.swift in Sources */,
+				068C512C2A432639007E3D86 /* Image.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
